@@ -24,7 +24,7 @@ function validateRepositoryId (request, response, next) {
 app.use('/repositories/:id', validateRepositoryId);
 
 app.get("/repositories", (request, response) => {
-  response.json(repositories);
+  return response.json(repositories);
 });
 
 app.post("/repositories", (request, response) => {
@@ -50,7 +50,7 @@ app.put("/repositories/:id", (request, response) => {
    const repository = {id, title, url, techs, likes: repositories[repositoryId].likes};   
    repositories[repositoryId] = repository;
 
-  response.json(repository);
+  return response.json(repository);
 });
 
 app.delete("/repositories/:id", (request, response) => {
